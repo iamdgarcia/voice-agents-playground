@@ -9,6 +9,8 @@ short_description: Live Silero VAD endpointing visualizer for voice agents
 ---
 
 # Voice Agents Playground
+**▶ Try it live:** <https://iamdgarcia-voice-agents-playground.static.hf.space> · **Code on GitHub:** <https://github.com/iamdgarcia/voice-agents-playground>
+
 
 Real-time, in-browser visualization of **endpointing** — the decision a realtime voice agent
 makes about when a user has finished speaking. Runs [Silero VAD](https://huggingface.co/onnx-community/silero-vad)
