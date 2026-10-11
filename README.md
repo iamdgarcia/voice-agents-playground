@@ -6,6 +6,12 @@ colorTo: indigo
 sdk: static
 app_file: index.html
 short_description: Live Silero VAD endpointing visualizer for voice agents
+tags:
+- voice-agent
+- vad
+- endpointing
+- transformers-js
+- webgpu
 ---
 
 # Voice Agents Playground
@@ -25,3 +31,5 @@ Tune threshold, min-speech and hangover live and watch endpointing behavior chan
 
 Built by [iamdgarcia](https://huggingface.co/iamdgarcia) — realtime voice agent engineering.
 Related research: semantic VAD & conversation dynamics ([iamdgarcia.com](https://iamdgarcia.com)).
+
+Further reading: [FD-VAD: Semantic Endpoint Detection for Streaming Full-Duplex Speech](https://www.alphaxiv.org/abs/2609.35791) (UMD, 2026) — why acoustic-only endpointing (what this demo shows) is the floor that semantic detectors must beat.
