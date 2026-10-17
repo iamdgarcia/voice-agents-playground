@@ -251,12 +251,23 @@ async function start() {
   if (running) return;
   if (!vadModel) {
     $('loadOverlay').classList.remove('hidden');
-    vadModel = await loadModel((info) => {
-      if (info.status === 'progress' && info.total) {
-        $('loadBar').value = (info.loaded / info.total) * 100;
-        $('loadFile').textContent = info.file || '';
-      }
-    });
+    $('loadFile').textContent = 'loading model…';
+    try {
+      vadModel = await loadModel((info) => {
+        if (info.status === 'progress' && info.total) {
+          $('loadBar').value = (info.loaded / info.total) * 100;
+          $('loadFile').textContent = info.file || '';
+        }
+      });
+    } catch (e) {
+      // never leave the overlay up: show the error and re-arm the start button
+      $('loadOverlay').classList.add('hidden');
+      $('loadFile').textContent = '';
+      alert('Model failed to load: ' + (e?.message || e) + '
+
+Check your connection (model + WASM come from CDNs) and try again.');
+      return;
+    }
     $('loadOverlay').classList.add('hidden');
   }
   try {
